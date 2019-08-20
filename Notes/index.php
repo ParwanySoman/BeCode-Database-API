@@ -28,4 +28,3 @@ $note = filter_var($_POST['note'], FILTER_SANITIZE_STRING);
 
  $connection->close();
 ?>
-
