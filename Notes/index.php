@@ -15,5 +15,6 @@ if (!$connection) {
 } else {
     echo "DB connected.";
 }
+
  $connection->close();
 ?>
