@@ -1,16 +1,23 @@
 <?php
+require "database.php";
 
-$dbhost="localhost"; //the host where your server is running it is usually localhost.
-$dbuser = "admin"; // the username i.e. root and $dbpass will be the password which is the same that you used to access your phpmyadmin.
-$dbpass = "5Iz1udaCSyoY";
-$db = "Notes"; // the name of your database 
-
-$update = "UPDATE Notes SET title='Doe' WHERE id=2";
-$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $db);
+$title = filter_var($_GET['title'], FILTER_SANITIZE_STRING);
+$note = filter_var($_POST['content'], FILTER_SANITIZE_STRING);
+$update = "UPDATE Notes SET content='$note' WHERE title='$title'";
 
 if (mysqli_query($connection, $update)) {
+    
     echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . mysqli_error($connection);
+}   else {
+     echo "Error updating record:" . mysqli_error($connection);
 }
-?>
+
+
+
+
+
+
+
+
+
+?> 
